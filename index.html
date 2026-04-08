@@ -4,83 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduGuard | Monitoramento Escolar</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Estilos base para manter a integração */
-        :root {
-            --bg-dark: #0a192f;
-            --accent: #64ffda;
-            --text-light: #ccd6f6;
-            --sidebar-width: 250px;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        
-        body { display: flex; background: #f4f7f6; min-height: 100vh; }
-
-        /* Sidebar Original */
-        .sidebar {
-            width: var(--sidebar-width);
-            background: var(--bg-dark);
-            height: 100vh;
-            position: fixed;
-            padding: 20px;
-            color: white;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo { font-size: 1.5rem; font-weight: bold; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; color: var(--accent); }
-        .sidebar ul { list-style: none; }
-        .nav-item { padding: 15px; cursor: pointer; border-radius: 8px; margin-bottom: 5px; transition: 0.3s; color: var(--text-light); }
-        .nav-item:hover, .nav-item.active { background: rgba(100, 255, 218, 0.1); color: var(--accent); }
-        .status-panel { margin-top: auto; padding-top: 20px; font-size: 0.8rem; border-top: 1px solid #233554; }
-        .online { color: #00ff00; font-weight: bold; }
-
-        /* Conteúdo */
-        .content { margin-left: var(--sidebar-width); width: 100%; padding: 40px; }
-        .tab-content { display: none; animation: fadeIn 0.5s; }
-        .tab-content.active { display: block; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* --- ESTILOS DA NOVA ABA HOME --- */
-        .hero-section {
-            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)), url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1000');
-            background-size: cover;
-            border-radius: 15px;
-            padding: 60px;
-            color: white;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .hero-section h1 { font-size: 2.5rem; margin-bottom: 20px; color: var(--accent); }
-        .hero-section p { font-size: 1.1rem; color: #8892b0; max-width: 800px; margin: 0 auto 30px; }
-        
-        .btn-link {
-            background: var(--accent);
-            color: var(--bg-dark);
-            padding: 12px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-        }
-
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .info-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .info-card i { font-size: 2rem; color: var(--bg-dark); margin-bottom: 15px; }
-
-        /* Estilos originais das câmeras para não quebrar */
-        .camera-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .camera-card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .cam-header { background: #0a192f; color: #fff; padding: 10px; font-size: 0.9rem; }
-        .cam-feed { height: 180px; background: #222; position: relative; }
-        .overlay { position: absolute; top: 10px; right: 10px; color: red; font-size: 0.8rem; font-weight: bold; }
-        
-        table { width: 100%; border-collapse: collapse; background: white; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-    </style>
 </head>
 <body>
 
@@ -90,10 +15,10 @@
             <span>EduGuard</span>
         </div>
         <ul>
-            <li class="nav-item active" onclick="openTab(event, 'inicio')">
-                <i class="fas fa-house"></i> Início
+            <li class="nav-item" onclick="openTab(event, 'inicio')">
+                <i class="fas fa-gear"></i> Inicio
             </li>
-            <li class="nav-item" onclick="openTab(event, 'monitoramento')">
+            <li class="nav-item active" onclick="openTab(event, 'monitoramento')">
                 <i class="fas fa-video"></i> Monitoramento
             </li>
             <li class="nav-item" onclick="openTab(event, 'relatorios')">
@@ -109,34 +34,27 @@
     </nav>
 
     <main class="content">
-        
-        <section id="inicio" class="tab-content active">
-            <div class="hero-section">
-                <h1>Bem-vindo ao EduGuard</h1>
-                <p>O portal central de segurança e monitoramento da nossa escola. Aqui você acompanha em tempo real a infraestrutura de proteção e as recentes melhorias implementadas.</p>
-                <a href="https://wesley-skz.github.io/melhorias-da-escola/" class="btn-link" target="_blank">Ver Painel de Melhorias Externo</a>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <i class="fas fa-lock"></i>
-                    <h3>Segurança Ativa</h3>
-                    <p>Monitoramento 24h por dia com protocolos de resposta rápida.</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Melhoria Contínua</h3>
-                    <p>Consulte os dados sobre as atualizações de hardware e software.</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Comunidade Protegida</h3>
-                    <p>Foco total no bem-estar de alunos, professores e funcionários.</p>
-                </div>
+        <section id="inicio" class="tab-content">
+            <header>
+                <h1>Logs de Atividade</h1>
+                <p>Registros de acessos e detecção de movimento.</p>
+            </header>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                            <th>Evento</th>
+                            <th>Localização</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="log-table">
+                        </tbody>
+                </table>
             </div>
         </section>
-
-           <main class="content">
+        
         <section id="monitoramento" class="tab-content active">
             <header>
                 <h1>Painel de Controle em Tempo Real</h1>
@@ -345,27 +263,5 @@
     </main>
 
     <script src="script.js"></script>
-    <script>
-        // Função original de troca de abas, sem alterações de funcionalidade
-        function openTab(evt, tabName) {
-            var i, tabContent, navItems;
-
-            // Esconde todo o conteúdo
-            tabContent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabContent.length; i++) {
-                tabContent[i].classList.remove("active");
-            }
-
-            // Remove a classe 'active' de todos os itens do menu
-            navItems = document.getElementsByClassName("nav-item");
-            for (i = 0; i < navItems.length; i++) {
-                navItems[i].classList.remove("active");
-            }
-
-            // Mostra a aba atual e marca o botão como ativo
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-    </script>
 </body>
 </html>
