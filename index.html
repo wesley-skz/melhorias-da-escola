@@ -15,9 +15,6 @@
             <span>EduGuard</span>
         </div>
         <ul>
-            <li class="nav-item" onclick="openTab(event, 'inicio')">
-                <i class="fas fa-gear"></i> Inicio
-            </li>
             <li class="nav-item active" onclick="openTab(event, 'monitoramento')">
                 <i class="fas fa-video"></i> Monitoramento
             </li>
@@ -34,27 +31,6 @@
     </nav>
 
     <main class="content">
-        <section id="inicio" class="tab-content">
-            <header>
-                <h1>Logs de Atividade</h1>
-                <p>Registros de acessos e detecção de movimento.</p>
-            </header>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Horário</th>
-                            <th>Evento</th>
-                            <th>Localização</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="log-table">
-                        </tbody>
-                </table>
-            </div>
-        </section>
-        
         <section id="monitoramento" class="tab-content active">
             <header>
                 <h1>Painel de Controle em Tempo Real</h1>
